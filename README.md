@@ -1,5 +1,5 @@
 # inventory
-This is a demonstration of an inventory taking app
+This is a demonstration of an inventory management app
 
 # stack
 PHP (Laravel), JavaScript (Vue), and CSS (Bootstrap), and MYSQL for database administration.
@@ -13,6 +13,8 @@ clone repository
 run composer update
 
 run npm install
+
+rename .env.example to .env and populate it with your database credentials as well as your email client
 
 # Test
 
