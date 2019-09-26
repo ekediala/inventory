@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="inventory">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ inventory.title }}</h5>
@@ -13,7 +13,7 @@
                         <span class="text-primary text-monospace">{{
                             inventory.units
                         }}</span>
-                        
+
                         <span class="text-small">
                             units left
                         </span>
@@ -27,12 +27,12 @@
                 </div>
 
                 <a :href="url" class="card-link">Edit Inventory</a>
-                <a href="#" @click.prevent="remove" class="card-link"
-                    >Delete Inventory</a
+                <button href="#" @click.prevent="remove" class="card-link btn btn-danger"
+                    >Delete Inventory</button
                 >
 
-                <a href="#" @click.prevent="use" class="card-link"
-                    >Use Inventory</a
+                <button href="#" @click.prevent="use" class="card-link btn btn-warning"
+                    >Use Inventory</button
                 >
             </div>
         </div>
@@ -71,22 +71,31 @@ export default {
             this.inventory.units -= 1;
             const inventory = this.inventory;
             axios
-                .patch('/api/inventory/' + this.inventory.id, {
-                    inventory,
+                .patch('/api/inventory/' + this.inventory.id,   inventory)
+                .then(result => {
+                    alert('Updated');
                 })
-                .then(result => {})
-                .catch(err => {});
+                .catch(err => {
+                    alert('Something went wrong. Please try again.');
+                    this.inventory.units += 1;
+                });
         },
 
         remove() {
             if (confirm('Are you sure you want to delete inventory?. This is irreversible.')){
                 axios.delete('/api/inventory/' + this.inventory.id).then((result) => {
-
+                    alert('Deleted Successfully');
                 }).catch((err) => {
-
+                    alert('Something went wrong. Please try again.');
                 });
             }
         },
     },
 };
 </script>
+
+<style scoped>
+    .inventory {
+        margin: 1.5rem auto;
+    }
+</style>
