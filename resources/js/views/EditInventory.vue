@@ -154,7 +154,8 @@ export default {
                     message: `Something went wrong on our end please check your internet
                             connection. If problem persists contact our admin. Thanks.`,
                 };
-            }).finally(() => {
+            })
+            .finally(() => {
                 this.loaded = true;
             });
     },
@@ -173,9 +174,10 @@ export default {
                 })
                 .catch(error => {
                     if (error.response.status === 401) {
-                        this.errors = {
-                            message: 'Unauthorised user',
-                        };
+                        alert('Session expired. Please log in again');
+                        localStorage.removeItem('token');
+                        localStorage.removeItem('is_admin');
+                        this.$router.replace('/login');
                         return;
                     }
 

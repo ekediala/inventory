@@ -51,6 +51,13 @@ export default {
                 this.inventories = response.data.inventories.data;
             })
             .catch(error => {
+                if (error.response.status === 401) {
+                    alert('Session expired. Please log in again');
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('is_admin');
+                    this.$router.replace('/login');
+                    return;
+                }
                 this.errors = {
                     message: `Something went wrong on our end please check your internet
                             connection. If problem persists contact our admin. Thanks.`,
