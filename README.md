@@ -24,4 +24,4 @@ Go localhost:8000, your app should be live there.
 
 # to be implemented
 
-Vue component for admin to be able to delete users.
+Vue component for admin to be able to delete users and navigation bars.
