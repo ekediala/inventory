@@ -5,7 +5,7 @@
                 <h5 class="card-title">{{ inventory.title }}</h5>
 
                 <h6 v-if="admin" class="card-subtitle mb-2 text-muted">
-                    By {{ inventory.user.name }}
+
                 </h6>
 
                 <div class="card-text">
@@ -13,7 +13,7 @@
                         <span class="text-primary text-monospace">{{
                             inventory.units
                         }}</span>
-                        &nbsp;
+                        
                         <span class="text-small">
                             units left
                         </span>
@@ -56,7 +56,7 @@ export default {
     data() {
         return {
             admin: false,
-            url: `/edit-inventory/${inventory.id}`,
+            url: `/edit-inventory/${this.inventory.id}`,
         };
     },
 

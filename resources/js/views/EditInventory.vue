@@ -100,7 +100,7 @@
                 ></textarea>
             </div>
             <button :disabled="sending" type="submit" class="btn btn-primary">
-                Create Inventory
+                Update Inventory
             </button>
         </form>
     </div>
@@ -166,7 +166,7 @@ export default {
             axios
                 .post('/api/inventory', inventory)
                 .then(result => {
-                    this.message = 'Created successfully';
+                    this.message = 'Updated successfully';
                     for (const key in this.inventory) {
                         this.inventory[key] = '';
                     }

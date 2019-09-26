@@ -1950,7 +1950,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       admin: false,
-      url: "/edit-inventory/".concat(inventory.id)
+      url: "/edit-inventory/".concat(this.inventory.id)
     };
   },
   created: function created() {
@@ -2062,7 +2062,7 @@ __webpack_require__.r(__webpack_exports__);
     axios.defaults.headers.common['Content-Type'] = 'application/json';
     axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
     axios.get('/api/admin/inventories').then(function (response) {
-      _this.inventories = response.data.users;
+      _this.inventories = response.data.inventories.data;
     })["catch"](function (error) {
       _this.errors = {
         message: "Something went wrong on our end please check your internet\n                            connection. If problem persists contact our admin. Thanks."
@@ -2531,7 +2531,7 @@ __webpack_require__.r(__webpack_exports__);
       this.sending = true;
       var inventory = this.inventory;
       axios.post('/api/inventory', inventory).then(function (result) {
-        _this2.message = 'Created successfully';
+        _this2.message = 'Updated successfully';
 
         for (var key in _this2.inventory) {
           _this2.inventory[key] = '';
@@ -39291,13 +39291,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _vm.admin
-          ? _c("h6", { staticClass: "card-subtitle mb-2 text-muted" }, [
-              _vm._v(
-                "\n                By " +
-                  _vm._s(_vm.inventory.user.name) +
-                  "\n            "
-              )
-            ])
+          ? _c("h6", { staticClass: "card-subtitle mb-2 text-muted" })
           : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "card-text" }, [
@@ -39305,7 +39299,7 @@ var render = function() {
             _c("span", { staticClass: "text-primary text-monospace" }, [
               _vm._v(_vm._s(_vm.inventory.units))
             ]),
-            _vm._v("\n                     \n                    "),
+            _vm._v(" "),
             _c("span", { staticClass: "text-small" }, [
               _vm._v(
                 "\n                        units left\n                    "
@@ -39407,7 +39401,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "container justify-content-center p-3" }, [
     _vm.errors
       ? _c("div", [_c("error-component", { attrs: { errors: _vm.errors } })], 1)
       : _c("div", [
@@ -39791,7 +39785,7 @@ var render = function() {
                   [
                     _c(
                       "div",
-                      { staticClass: "actiions" },
+                      { staticClass: "actions" },
                       [
                         _c("router-link", { attrs: { to: "/create" } }, [
                           _vm._v("Create new inventory")
@@ -40104,7 +40098,7 @@ var render = function() {
             staticClass: "btn btn-primary",
             attrs: { disabled: _vm.sending, type: "submit" }
           },
-          [_vm._v("\n            Create Inventory\n        ")]
+          [_vm._v("\n            Update Inventory\n        ")]
         )
       ]
     )

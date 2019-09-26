@@ -14,7 +14,7 @@
                 </p>
             </div>
             <div v-else>
-                <div class="actiions">
+                <div class="actions">
                     <router-link to="/create">Create new inventory</router-link>
                     <button @click="logout" class="btn btn-danger">
                         Log Out

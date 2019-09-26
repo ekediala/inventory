@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container justify-content-center p-3">
         <div v-if="errors">
             <error-component :errors="errors" />
         </div>
@@ -49,7 +49,7 @@ export default {
         axios
             .get('/api/admin/inventories')
             .then(response => {
-                this.inventories = response.data.users;
+                this.inventories = response.data.inventories.data;
             })
             .catch(error => {
                 this.errors = {
