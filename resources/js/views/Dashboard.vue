@@ -14,9 +14,11 @@
                 </p>
             </div>
             <div v-else>
-                <div>
+                <div class="actiions">
                     <router-link to="/create">Create new inventory</router-link>
-                        <button @click="logout" class="btn btn-danger">Log Out</button>
+                    <button @click="logout" class="btn btn-danger">
+                        Log Out
+                    </button>
                 </div>
                 <inventory
                     v-for="(inventory, key) in inventories"
@@ -45,17 +47,20 @@ export default {
     },
 
     methods: {
-        logout(){
-            if (confirm('You are logging out')){
-                axios.post('/api/logout').then(() => {
-                    localStorage.removeItem('token');
-                    localStorage.removeItem('is_admin');
-                    this.$router.replace('/login');
-                }).catch((error) => {
-                    alert('Something went wrong. Please try again');
-                });
+        logout() {
+            if (confirm('You are logging out')) {
+                axios
+                    .post('/api/logout')
+                    .then(() => {
+                        localStorage.removeItem('token');
+                        localStorage.removeItem('is_admin');
+                        this.$router.replace('/login');
+                    })
+                    .catch(error => {
+                        alert('Something went wrong. Please try again');
+                    });
             }
-        }
+        },
     },
 
     created() {
@@ -87,5 +92,10 @@ export default {
 <style scoped>
 .parent {
     padding: 3rem;
+}
+
+.actions {
+    margin: 2rem;
+    padding: 1rem;
 }
 </style>

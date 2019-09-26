@@ -2303,6 +2303,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7549,7 +7551,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.parent[data-v-1f79daf6] {\n    padding: 3rem;\n}\n", ""]);
+exports.push([module.i, "\n.parent[data-v-1f79daf6] {\n    padding: 3rem;\n}\n.actions[data-v-1f79daf6] {\n    margin: 2rem;\n    padding: 1rem;\n}\n", ""]);
 
 // exports
 
@@ -39789,6 +39791,7 @@ var render = function() {
                   [
                     _c(
                       "div",
+                      { staticClass: "actiions" },
                       [
                         _c("router-link", { attrs: { to: "/create" } }, [
                           _vm._v("Create new inventory")
@@ -39800,7 +39803,11 @@ var render = function() {
                             staticClass: "btn btn-danger",
                             on: { click: _vm.logout }
                           },
-                          [_vm._v("Log Out")]
+                          [
+                            _vm._v(
+                              "\n                    Log Out\n                "
+                            )
+                          ]
                         )
                       ],
                       1

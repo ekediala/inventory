@@ -30,7 +30,7 @@ class InventoryController extends Controller
     }
 
     /**
-     * Show given resource
+     * Show given inventory
      */
 
      public function show(Inventory $inventory){
