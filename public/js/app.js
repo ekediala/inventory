@@ -2052,7 +2052,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       inventories: null,
-      unauthorised: false,
       errors: null
     };
   },
@@ -2670,6 +2669,13 @@ __webpack_require__.r(__webpack_exports__);
         _this.sending = false;
       });
     }
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (localStorage.getItem('token') !== null) {
+      return next('/');
+    }
+
+    next();
   }
 });
 
@@ -3013,6 +3019,13 @@ __webpack_require__.r(__webpack_exports__);
         _this.sending = false;
       });
     }
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (localStorage.getItem('token') !== null) {
+      return next('/');
+    }
+
+    next();
   }
 });
 

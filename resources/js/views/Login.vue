@@ -99,5 +99,13 @@ export default {
                 });
         },
     },
+
+    beforeRouteEnter(to, from, next) {
+        if (localStorage.getItem('token') !== null) {
+            return next('/');
+        }
+
+        next();
+    },
 };
 </script>

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 class AuthController extends Controller
 {
     /**
-     * Create a new AuthController instance.
+     * Create a new AuthController instance and protect
+     * routes that need authentication
      *
      * @return void
      */
@@ -25,7 +26,7 @@ class AuthController extends Controller
             'email' => 'email|required',
             'password' => 'required|min:8'
         ]);
-        
+
         $credentials = request(['email', 'password']);
 
         if (!$token = auth()->attempt($credentials)) {

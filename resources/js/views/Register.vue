@@ -88,7 +88,7 @@ export default {
                 })
                 .then(response => {
                     const token = response.data.access_token;
-                    if (response.data.is_admin){
+                    if (response.data.is_admin) {
                         localStorage.setItem('is_admin', true);
                     }
                     localStorage.setItem('token', token);
@@ -111,6 +111,14 @@ export default {
                     this.sending = false;
                 });
         },
+    },
+
+    beforeRouteEnter(to, from, next) {
+        if (localStorage.getItem('token') !== null) {
+            return next('/');
+        }
+
+        next();
     },
 };
 </script>

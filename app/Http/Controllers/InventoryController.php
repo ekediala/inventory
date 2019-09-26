@@ -8,7 +8,8 @@ use App\Inventory;
 class InventoryController extends Controller
 {
     /**
-     * Create a new InventoryController instance.
+     * Create a new InventoryController instance and protect inventories
+     * from unauthenticated and unauthorised users
      *
      * @return void
      */
