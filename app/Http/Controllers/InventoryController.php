@@ -30,6 +30,15 @@ class InventoryController extends Controller
     }
 
     /**
+     * Show given resource
+     */
+
+     public function show(Inventory $inventory){
+        return response()->json($inventory, 200);
+     }
+
+
+    /**
      * Store a newly created inventory.
      *
      * @param  \Illuminate\Http\Request  $request

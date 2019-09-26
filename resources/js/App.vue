@@ -1,11 +1,13 @@
 <template>
     <div>
-      <router-view></router-view>
+        <vue-page-transition>
+            <router-view></router-view>
+        </vue-page-transition>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'App'
-}
+    name: 'App',
+};
 </script>

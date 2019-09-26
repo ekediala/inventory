@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notification;
 class PasswordRequest extends Notification implements ShouldQueue
 {
     use Queueable;
-    
+
     protected $token;
 
     /**
@@ -42,7 +42,7 @@ class PasswordRequest extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        $url = url('/api/password/find/' . $this->token);
+        $url = url('password-reset/' . $this->token);
         $message = <<<EOT
         You are receiving this mail because we received a password change request.
         Click the link below to reset your password if you made the request. Ignore
